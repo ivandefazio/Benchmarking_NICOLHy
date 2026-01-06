@@ -1,0 +1,210 @@
+/* =================================================
+   MCDA DASHBOARD — STREAMLIT PATCH & DESIGN SYSTEM
+   Works together with .streamlit/config.toml
+   ================================================= */
+
+
+/* =================================================
+   REMOVE STREAMLIT WHITE HEADER
+   (do NOT touch global background)
+   ================================================= */
+
+header, .stApp > header {
+  background: transparent !important;
+  border-bottom: none !important;
+}
+
+
+/* =================================================
+   SIDEBAR (refinement only)
+   ================================================= */
+
+section[data-testid="stSidebar"] {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+section[data-testid="stSidebar"] * {
+  opacity: 0.95;
+}
+
+
+/* =================================================
+   TABS
+   ================================================= */
+
+button[data-baseweb="tab"] {
+  background-color: transparent !important;
+  opacity: 0.65;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] {
+  opacity: 1;
+  border-bottom: 3px solid var(--primary-color, #615fff) !important;
+}
+
+
+/* =================================================
+   BUTTONS (minor refinements, no recolor)
+   ================================================= */
+
+.stButton > button {
+  border-radius: 8px;
+}
+
+
+/* =================================================
+   RADIO / CHECKBOX / TOGGLE (legibility fix)
+   ================================================= */
+
+div[role="radiogroup"] label,
+div[data-baseweb="checkbox"] label {
+  opacity: 0.9;
+}
+
+
+/* =================================================
+   EXPANDERS
+   ================================================= */
+
+details {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+details > summary {
+  padding: 0.5rem 0.75rem;
+}
+
+
+/* =================================================
+   ALERTS
+   ================================================= */
+
+div[data-testid="stAlert"] {
+  border-radius: 10px;
+}
+
+
+/* =================================================
+   KPI CARD — DESIGN SYSTEM COMPONENT
+   ================================================= */
+
+.kpi-card {
+  background-color: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+
+/* =================================================
+   PLOTLY
+   ================================================= */
+
+.plotly-container {
+  background-color: transparent !important;
+}
+
+
+/* =================================================
+   DROPDOWN & SELECTBOX — DARK MODE FIX
+   ================================================= */
+
+div[data-baseweb="select"] > div:focus,
+div[data-baseweb="select"] > div[aria-expanded="true"] {
+  outline: none !important;
+}
+
+ul[role="listbox"] {
+  background-color: #0f172b !important;
+  border: 1px solid #615fff !important;
+}
+
+ul[role="listbox"] li {
+  background-color: transparent !important;
+}
+
+ul[role="listbox"] li:hover {
+  background-color: #615fff !important;
+  color: #ffffff !important;
+}
+
+
+/* =================================================
+   INPUT FOCUS (number, text)
+   ================================================= */
+
+input:focus,
+textarea:focus {
+  outline: none !important;
+}
+
+
+/* =================================================
+   STREAMLIT TABS — EXECUTIVE GREEN PILLS
+   ================================================= */
+
+/* Spazio sopra i tab (fix pillola mozzata) */
+div[data-baseweb="tab-list"] {
+  gap: 1.2rem;
+  margin-top: 1.25rem;     /* 🔧 FIX principale */
+  margin-bottom: 1.75rem;
+}
+
+/* Tab base */
+button[data-baseweb="tab"] {
+  font-size: 1.05rem;
+  font-weight: 500;
+  padding: 0.85rem 1.7rem; /* leggermente più alte */
+  border-radius: 999px;    /* pillola vera */
+  background-color: transparent !important;
+  color: #cbd5e1 !important;
+  border: none !important;
+  transition: all 0.25s ease;
+}
+
+/* Hover */
+button[data-baseweb="tab"]:hover {
+  background-color: rgba(34, 197, 94, 0.15) !important; /* verde soft */
+  color: #ffffff !important;
+}
+
+/* Active tab — GREEN, NO UNDERLINE */
+button[data-baseweb="tab"][aria-selected="true"] {
+  background-color: rgba(34, 197, 94, 0.25) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  box-shadow: none !important;      /* ❌ niente underline */
+  border-bottom: none !important;   /* ❌ sicurezza extra */
+}
+
+/* Remove default focus / outline */
+button[data-baseweb="tab"]:focus {
+  outline: none !important;
+}
+
+/* =================================================
+   KILL STREAMLIT TAB UNDERLINE — DEFINITIVE FIX
+   ================================================= */
+
+/* Remove BaseWeb active tab underline */
+button[data-baseweb="tab"]::after,
+button[data-baseweb="tab"]::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Remove internal underline element */
+div[data-baseweb="tab-highlight"],
+div[role="tablist"] > div {
+  display: none !important;
+}
+
+/* Extra safety: remove any bottom borders */
+button[data-baseweb="tab"],
+button[data-baseweb="tab"][aria-selected="true"] {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
