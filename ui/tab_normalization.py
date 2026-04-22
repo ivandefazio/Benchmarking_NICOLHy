@@ -31,8 +31,8 @@ def style_norm_table(df: pd.DataFrame):
 
     return (
         df.style
-        .applymap(color_method, subset=["Method"])
-        .applymap(color_direction, subset=["Direction"])
+        .map(color_method, subset=["Method"])
+        .map(color_direction, subset=["Direction"])
         .set_properties(**{"text-align": "left"})
         .set_table_styles(
             [
