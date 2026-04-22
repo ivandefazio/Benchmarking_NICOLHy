@@ -186,7 +186,7 @@ def render():
         st.dataframe(
             summary_display
             .style
-            .applymap(highlight_missing)
+            .map(highlight_missing)
             .format("{:.2f}"),
             use_container_width=True,
         )
